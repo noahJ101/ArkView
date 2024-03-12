@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+use App\Mail\RegisterMail;
+
 use Illuminate\Support\Facades\Hash;
 
 use RealRashid\SweetAlert\Facades\Alert;
+
+use Mail;
+
+use Str;
 
 class AuthController extends Controller
 {
@@ -38,7 +44,10 @@ class AuthController extends Controller
         $save->name = trim($request->name);
         $save->email = trim($request->email);
         $save->password = Hash::make($request->password);
+        $save->remember_token = Str::random(40);
         $save->save();
+
+        Mail::to($save->email)->send(new RegisterMail($save));
 
         Alert::success('Account Created Successfully', 'Account Created Successfully');
 
