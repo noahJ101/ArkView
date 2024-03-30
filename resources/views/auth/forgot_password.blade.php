@@ -50,7 +50,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="{{url('')}}" class="logo d-flex align-items-center w-auto">
-                  <img src="{{url('assets/img/logo.png')}}" alt="">
+                  <img src="{{url('assets/img/ark.png')}}" alt="">
                   <span class="d-none d-lg-block">Ark View</span>
                 </a>
               </div><!-- End Logo -->
