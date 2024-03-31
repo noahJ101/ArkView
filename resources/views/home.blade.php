@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('style')
+
+@endsection
+
+
 @section('content')
     
 
@@ -145,7 +150,8 @@
           <div class="col-lg-5">
             <img
               class="img-fluid rounded mb-5 mb-lg-0"
-              src="img/about-1.jpg"
+              src="{{ url('img/about-1.jpg') }}"
+              
               alt=""
             />
           </div>
@@ -239,7 +245,7 @@
           </div>
           <div class="col-lg-4 mb-5">
             <div class="card border-0 bg-light shadow-sm pb-2">
-              <img class="card-img-top mb-2" src="img/class-2.jpg" alt="" />
+              <img class="card-img-top mb-2" src="{{ url('img/class-2.jpg') }}" alt="" />
               <div class="card-body text-center">
                 <h4 class="card-title">Language Learning</h4>
                 <p class="card-text">
@@ -648,7 +654,7 @@
         <div class="row pb-3">
           <div class="col-lg-4 mb-4">
             <div class="card border-0 shadow-sm mb-2">
-              <img class="card-img-top mb-2" src="img/blog-1.jpg" alt="" />
+              <img class="card-img-top mb-2" src="{{ url('img/blog-1.jpg') }}" alt="" />
               <div class="card-body bg-light text-center p-4">
                 <h4 class="">Diam amet eos at no eos</h4>
                 <div class="d-flex justify-content-center mb-3">
@@ -702,7 +708,7 @@
           </div>
           <div class="col-lg-4 mb-4">
             <div class="card border-0 shadow-sm mb-2">
-              <img class="card-img-top mb-2" src="img/blog-3.jpg" alt="" />
+              <img class="card-img-top mb-2" src="{{url('img/blog-3.jpg')}}" alt="" />
               <div class="card-body bg-light text-center p-4">
                 <h4 class="">Diam amet eos at no eos</h4>
                 <div class="d-flex justify-content-center mb-3">
@@ -732,6 +738,10 @@
     </div>
     <!-- Blog End -->
     @endsection
+
+    @section('script')
+
+@endsection
    
 
     
