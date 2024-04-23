@@ -22,6 +22,8 @@ Route::get('login', [AuthController::class, 'login']);
 
 Route::get('register', [AuthController::class, 'register']);
 
+Route::get('verify/{token}', [AuthController::class, 'verify']);
+
 Route::post('register', [AuthController::class, 'create_user']);
 
 Route::get('forgot_password', [AuthController::class, 'forgot_password']);

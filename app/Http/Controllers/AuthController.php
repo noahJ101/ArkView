@@ -49,12 +49,29 @@ class AuthController extends Controller
 
         Mail::to($save->email)->send(new RegisterMail($save));
 
-        Alert::success('Account Created Successfully', 'Account Created Successfully');
+        Alert::success('Account Created Successfully, Kindly Verify your Email Address.', 'Account Created Successfully');
 
         return redirect('login'); //->with('success', "Your account has been Registered Successfully");
 
         //sweet alert confirmation
         // onclick="confirmation(event)"
+    }
+
+    public function verify($token)
+    {
+       $user = User::where('remember_token', '=', $token)->first();
+       if(!empty($user))
+       {
+        $user->email_verified_at = date('Y-m-d H:i:s');
+        $user->remember_token = Str::random(40);
+        $user->save();
+        Alert::success('Your Account Successfully Verified.', 'Account Created Successfully');
+        return redirect('login');
+       } 
+       else
+       {
+        abort(404);
+       }
     }
     
 }
