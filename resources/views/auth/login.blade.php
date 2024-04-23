@@ -70,7 +70,7 @@
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Email</label>
-                        <input type="email" name="username" class="form-control" id="yourEmail" required>
+                        <input type="email" name="email" class="form-control" id="yourEmail" required>
                         
                       
                     </div>
