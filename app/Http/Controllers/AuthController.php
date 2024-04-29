@@ -8,6 +8,8 @@ use App\Models\User;
 
 use App\Mail\RegisterMail;
 
+use App\Mail\ForgotPasswordMail;
+
 use Illuminate\Support\Facades\Hash;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -35,6 +37,25 @@ class AuthController extends Controller
         return view('auth.forgot_password');
     }
 
+    public  function forgot_password(Request $request)
+    {
+        $users = User::where('email', '=', $request->email)->first();
+        if(!empty($user))
+        {
+
+            $user->remember_token = Str::random(40);
+            $user->save();
+
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
+
+            return redirect()->back()->with('success', "Kindly check your email and reset your password");
+        }
+        else
+        {
+            return redirect()->back()->with('error', "Email address not found");
+        }
+    }
+
     public function auth_login(Request $request)
     {
        $remember = !empty($request->remember) ? true : false;
@@ -48,15 +69,18 @@ class AuthController extends Controller
         }
         else
         {
-            $save = User::getSingle(Auth::user()->email_verified_at);
+            $user_id = Auth::user()->id;
+            Auth::logout();
+            $save = User::getSingle($user_id);
             $save->remember_token = Str::random(40);
             $save->save();
+            
 
             Mail::to($save->email)->send(new RegisterMail($save));
 
-            Alert::success('Account Created Successfully, Kindly Verify your Email Address.', 'Account Created Successfully');
+           // Alert::success('Please kindly verify your email address, Kindly Verify your Email Address.', 'Account Created Successfully');
     
-            return redirect('login'); //->with('success', "Your account has been Registered Successfully");
+            return redirect()->back()->with('success', "Kindly Verify your email address");
         }
        }
        else

@@ -42,4 +42,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    static public function getSingle($id)
+    {
+        return self::find($id);
+    }
 }

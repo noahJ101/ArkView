@@ -63,14 +63,15 @@
                     <h5 class="card-title text-center pb-0 fs-4">Forgot Password?</h5>
                     <p class="text-center small">Enter your Email Address</p>
                   </div>
-
-                  <form class="row g-3 needs-validation" novalidate>
-
+                  @include('layouts._messages')
+                  @include('sweetalert::alert')
+                  <form class="row g-3 needs-validation" action="" method="POST">
+                    {{csrf_field()}}
                     
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Email</label>
-                      <input type="email" name="password" class="form-control" id="yourPassword" required>
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" name="email" class="form-control" id="yourPassword" required>
                       
                     </div>
 
