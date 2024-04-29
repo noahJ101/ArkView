@@ -37,9 +37,56 @@ class AuthController extends Controller
         return view('auth.forgot_password');
     }
 
+    public function reset($token)
+    {
+        $user = User::where('remember_token', '=', $token)->first();
+        if(!empty($user))
+        {
+            $data['user'] = $user;
+        return view('auth.reset', $data);
+    }
+    else
+    {
+        abort(404);
+    }
+
+}
+
+public function post_reset($token, Request $request)
+
+{
+    $user = User::where('remember_token', '=', $token)->first();
+    if(!empty($user))
+    {
+        if($request->password == $request->cpassword)
+        {
+            $user->password = Hash::make($request->password);
+            if(empty($user->email_verified_at))
+            {
+                $user->email_verified_at = date('Y-m-d H:i:s'); 
+            }
+           
+            $user->remember_token = Str::random(40);
+            $user->save();
+
+            return redirect('login')->with('success', "Password successfully reset"); 
+
+        }
+        else
+        {
+            return redirect()->back()->with('error', "Password and Confirm Password does not match"); 
+        }
+      
+}
+else
+{
+    abort(404);
+}
+}
+
     public  function forgot_password(Request $request)
     {
-        $users = User::where('email', '=', $request->email)->first();
+        $user = User::where('email', '=', $request->email)->first();
         if(!empty($user))
         {
 
