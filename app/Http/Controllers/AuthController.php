@@ -111,8 +111,7 @@ else
        {
         if(!empty(Auth::user()->email_verified_at))
         {
-            echo "successfully";
-            die;
+            return redirect('panel/dashboard');
         }
         else
         {
@@ -175,6 +174,12 @@ else
        {
         abort(404);
        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('login');
     }
     
 }
