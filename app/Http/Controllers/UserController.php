@@ -46,6 +46,11 @@ class UserController extends Controller
 
     public function update_user($id, Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id
+            
+        ]);
         $save = User::getSingle($id);
         $save->name = trim($request->name);
         $save->email = trim($request->email);
@@ -64,16 +69,11 @@ class UserController extends Controller
     public function delete_user($id)
     {
         $save = User::getSingle($id);
+        $save->is_delete = 1;
+        $save->save();
 
-        // Check if the user exists
-    if ($save) {
-        // Delete the user
-        $save->delete();
-
-        return redirect('panel/user/list')->with('success', "User deleted successfully");
+    return redirect()->back()->with('success', "User deleted successfully");
     } 
-    else {
-        return "User not found";
-    }
-    }
+   
+    
 }

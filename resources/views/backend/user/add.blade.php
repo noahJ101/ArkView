@@ -20,17 +20,17 @@
               <div class="col-12">
                 <label for="inputNanme4" class="form-label">Name</label>
                 <input type="text" name="name" value="{{ old('name') }}" required class="form-control" id="inputNanme4">
-                <div style="color: red">{{ $error->first('name') }}</div>
+                <div style="color: red">{{ $errors->first('name') }}</div>
               </div>
               <div class="col-12">
                 <label for="inputEmail4" class="form-label">Email</label>
                 <input type="email" name="email" value="{{ old('email') }}" required class="form-control" id="inputEmail4">
-                <div style="color: red">{{ $error->first('email') }}</div>
+                <div style="color: red">{{ $errors->first('email') }}</div>
               </div>
               <div class="col-12">
                 <label for="inputPassword4" class="form-label">Password</label>
                 <input type="password" required name="password" class="form-control" id="inputPassword4">
-                <div style="color: red">{{ $error->first('password') }}</div>
+                <div style="color: red">{{ $errors->first('password') }}</div>
               </div>
 
               <div class="col-12">
