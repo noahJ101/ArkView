@@ -66,11 +66,54 @@ class BlogController extends Controller
 
 
     }
+
     public function edit_blog($id)
     {
+        
         
         $data['getCategory'] = CategoryModel::getCategory();
         $data['getRecord'] = BlogModel::getSingle($id);
         return view('backend.blog.edit', $data);
+    }
+
+    public function update_blog($id, Request $request)
+    {
+    
+
+        $save =  BlogModel::getSingle($id);
+        $save->title = trim($request->title);
+        $save->category_id = trim($request->category_id);
+        $save->description = trim($request->description);
+        $save->meta_description = trim($request->meta_description);
+        $save->meta_keywords = trim($request->meta_keywords);
+        $save->is_publish = trim($request->is_publish);
+        $save->status = trim($request->status);
+    
+        if(!empty($request->file('image_file')))
+        {
+            if(!empty($save->getImage()))
+            {
+                unlink('upload/blog/' .$save->image_file);
+            }
+            $ext = $request->file('image_file')->getClientOriginalExtension();
+            $file = $request->file('image_file');
+            $filename = $save->slug. '.'.$ext;
+            $file->move('upload/blog/', $filename);
+            $save->image_file = $filename;
+        }
+        $save->save();
+
+        return redirect('panel/blog/list')->with('success', 'Blog Successfully Updated');
+
+
+    }
+    public function delete_blog($id)
+    {
+        $save = BlogModel::getSingle($id);
+        $save->is_delete =1;
+        $save->save();
+
+        return redirect()->back()->with('success', 'Blog Successfully Deleted');
+
     }
 }

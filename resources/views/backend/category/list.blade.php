@@ -30,8 +30,7 @@
                   <th scope="col">Slug</th>
                   <th scope="col">Titles</th>
                   <th scope="col">Meta Titles</th>
-                  <th scope="col">Meta Description</th>
-                  <th scope="col">Meta Keywords</th>
+              
                   <th scope="col">Status</th>
                   <th scope="col">Created Date</th>
                   <th scope="col">Action</th>

@@ -12,7 +12,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Add New Blog Post</h5>
+            <h5 class="card-title">Edit Blog Post</h5>
 
             
             <form class="row g-3" action="" method="post" enctype="multipart/form-data">
@@ -20,15 +20,15 @@
       
               <div class="col-12">
                 <label for="inputEmail4" class="form-label">Title</label>
-                <input type="text" name="title"  required class="form-control" id="inputEmail4">
+                <input type="text" name="title" value="{{ $getRecord->title }}"  required class="form-control" id="inputEmail4">
               </div>
 
               <div class="col-12">
                 <label class="form-label">Category</label>
                 <select class="form-control" name="category_id" required>
-                <option value="">Select Category</option>
+                <option value=""> Select Category </option>
                 @foreach ($getCategory as $value)
-                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                <option {{ ($getRecord->category_id == $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->name }}</option>
                     
                 @endforeach
                 </select>
@@ -36,12 +36,17 @@
 
               <div class="col-12">
                 <label for="inputEmail4" class="form-label">Image</label>
-                <input type="file"  class="form-control" name="image_file" required>
+                <input type="file"  class="form-control" name="image_file">
+
+                @if(!empty($getRecord->getImage()))
+                <img src="{{ $getRecord->getImage() }}" style="height: 100px;  width: 100px;" alt="">
+              @endif
+
               </div>
 
               <div class="col-12">
                 <label for="inputEmail4" class="form-label">Description</label>
-                <textarea class="form-control tinymce-editor" name="description"></textarea> 
+                <textarea class="form-control tinymce-editor" name="description">{{ $getRecord->description }}</textarea> 
               </div>
 
               <div class="col-12">
@@ -55,7 +60,7 @@
 
               <div class="col-12">
                 <label for="inputNanme4" class="form-label">Meta Description</label>
-                <textarea class="form-control" name="meta_description" value="{{ old('meta_description') }}" class="form-control" id="inputNanme4"></textarea>
+                <textarea class="form-control" name="meta_description" value="{{ old('meta_description') }}" class="form-control" id="inputNanme4">{{ $getRecord->meta_description }}</textarea>
                 <div style="color: red">{{ $errors->first('meta_description') }}</div>
               </div>
 
@@ -63,7 +68,7 @@
 
               <div class="col-12">
                 <label for="inputNanme4" class="form-label">Meta Keywords</label>
-                <input type="text" name="meta_keywords" value="{{ old('meta_keywords') }}" class="form-control" id="inputNanme4">
+                <input type="text" name="meta_keywords" value="{{ $getRecord->meta_keywords }}" class="form-control" id="inputNanme4">
                 <div style="color: red">{{ $errors->first('meta_keywords') }}</div>
               </div>
 
@@ -71,8 +76,8 @@
               <div class="col-12">
                 <label for="inputPassword4" class="form-label">Publish</label>
                 <select class="form-control" name="is_publish"> 
-                    <option  value="1">Yes</option>
-                    <option  value="0">No</option>
+                    <option {{ ($getRecord->is_publish == 1) ? 'selected' : '' }}  value="1">Yes</option>
+                    <option {{ ($getRecord->is_publish == 0) ? 'selected' : '' }}  value="0">No</option>
                 </select>
               </div>
 
@@ -80,8 +85,8 @@
               <div class="col-12">
                 <label for="inputPassword4" class="form-label">Status</label>
                 <select class="form-control" name="status"> 
-                    <option  value="1">Active</option>
-                    <option  value="0">Inactive</option>
+                    <option {{ ($getRecord->status == 1) ? 'selected' : '' }}  value="1">Active</option>
+                    <option {{ ($getRecord->status == 0) ? 'selected' : '' }} value="0">Inactive</option>
 
                 </select>
               </div>
