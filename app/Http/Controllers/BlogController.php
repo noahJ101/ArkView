@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CategoryModel;
 use App\Models\BlogModel;
+use App\Models\BlogTagsModel;
 use Auth;
 use Str;
 class BlogController extends Controller
@@ -62,6 +63,8 @@ class BlogController extends Controller
         }
         $save->save();
 
+        BlogTagsModel::InsertDeletedTag($save->id, $request->tags);
+
         return redirect('panel/blog/list')->with('success', 'Blog Successfully Created');
 
 
@@ -79,7 +82,7 @@ class BlogController extends Controller
     public function update_blog($id, Request $request)
     {
     
-
+        
         $save =  BlogModel::getSingle($id);
         $save->title = trim($request->title);
         $save->category_id = trim($request->category_id);
@@ -102,6 +105,8 @@ class BlogController extends Controller
             $save->image_file = $filename;
         }
         $save->save();
+
+        BlogTagsModel::InsertDeletedTag($save->id, $request->tags);
 
         return redirect('panel/blog/list')->with('success', 'Blog Successfully Updated');
 

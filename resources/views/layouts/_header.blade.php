@@ -9,7 +9,7 @@
         style="font-size: 50px"
       >
         <i class="flaticon-043-teddy-bear"></i>
-        <span class="text-primary">KidKinder</span>
+        <span class="text-primary">Ark Views</span>
       </a>
       <button
         type="button"
@@ -24,24 +24,12 @@
         id="navbarCollapse"
       >
         <div class="navbar-nav font-weight-bold mx-auto py-0">
-          <a href="index.html" class="nav-item nav-link active">Home</a>
-          <a href="about.html" class="nav-item nav-link">About</a>
-          <a href="class.html" class="nav-item nav-link">Classes</a>
-          <a href="team.html" class="nav-item nav-link">Teachers</a>
-          <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-          <div class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-toggle="dropdown"
-              >Pages</a
-            >
-            <div class="dropdown-menu rounded-0 m-0">
-              <a href="blog.html" class="dropdown-item">Blog Grid</a>
-              <a href="single.html" class="dropdown-item">Blog Detail</a>
-            </div>
-          </div>
-          <a href="contact.html" class="nav-item nav-link">Contact</a>
+          <a href="{{ url('') }}" class="nav-item nav-link active">Home</a>
+          <a href="{{ url('about')}}" class="nav-item nav-link">About</a>
+          <a href="{{ url('teams') }}" class="nav-item nav-link">Teams</a>
+          <a href="{{ url('gallary') }}" class="nav-item nav-link">Gallery</a>
+          <a href="{{ url('blog') }}" class="nav-item nav-link">Blog</a>
+          <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>
         </div>
         <a href="{{url('login')}}" class="btn btn-primary px-4">Login</a>
         <a style="margin-left: 8px;" href="{{url('register')}}" class="btn btn-primary px-4">Register</a>
