@@ -32,6 +32,7 @@ class CategoryController extends Controller
         $save->meta_description = trim($request->meta_description);
         $save->meta_keywords = trim($request->meta_keywords);
         $save->status= trim($request->status);
+        $save->is_menu= trim($request->is_menu);
         $save->save();
 
         return redirect('panel/category/list')->with('success', "Category Successfully Created"); 
@@ -53,6 +54,7 @@ class CategoryController extends Controller
         $save->meta_description = trim($request->meta_description);
         $save->meta_keywords = trim($request->meta_keywords);
         $save->status= trim($request->status);
+        $save->is_menu= trim($request->is_menu);
         $save->save();
 
         return redirect('panel/category/list')->with('success', "Category Successfully Updated"); 

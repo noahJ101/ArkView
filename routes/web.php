@@ -80,3 +80,6 @@ Route::group(['middleware' => 'adminuser'], function(){
    Route::post('panel/blog/edit/{id}', [BlogController::class, 'update_blog']);
   Route::get('panel/blog/delete/{id}', [BlogController::class, 'delete_blog']);
 });
+
+
+Route::get('{slug}', [HomeController::class, 'blogdetail']);

@@ -23,13 +23,21 @@
         class="collapse navbar-collapse justify-content-between"
         id="navbarCollapse"
       >
+
+      @php
+        $getCategoryHeader =  App\Models\CategoryModel::getCategoryMenu();
+      @endphp
         <div class="navbar-nav font-weight-bold mx-auto py-0">
-          <a href="{{ url('') }}" class="nav-item nav-link active">Home</a>
-          <a href="{{ url('about')}}" class="nav-item nav-link">About</a>
+          <a href="{{ url('') }}" class="nav-item nav-link @if(Request::segment(1) == '') active @endif ">Home</a>
+          @foreach ($getCategoryHeader as $CategoryHeader )
+          <a href="{{ url($CategoryHeader->slug) }}" class="nav-item nav-link @if(Request::segment(1) == $CategoryHeader->slug) active @endif">{{ $CategoryHeader->name }}</a>
+          @endforeach
+          {{--<a href= class="nav-item nav-link">About</a>
           <a href="{{ url('teams') }}" class="nav-item nav-link">Teams</a>
           <a href="{{ url('gallary') }}" class="nav-item nav-link">Gallery</a>
-          <a href="{{ url('blog') }}" class="nav-item nav-link">Blog</a>
-          <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>
+          --}}
+         {{-- <a href="{{ url('blog') }}" class="nav-item nav-link">Blog</a> --}}
+          {{--<a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>--}}
         </div>
         <a href="{{url('login')}}" class="btn btn-primary px-4">Login</a>
         <a style="margin-left: 8px;" href="{{url('register')}}" class="btn btn-primary px-4">Register</a>

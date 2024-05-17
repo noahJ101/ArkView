@@ -54,6 +54,15 @@
               <hr>
 
               <div class="col-12">
+                <label for="inputPassword4" class="form-label">Menu *</label>
+                <select class="form-control" name="is_menu"> 
+                    <option {{ ($getRecord->is_menu==0) ? 'selected' : '' }}  value="0">No</option>
+                    
+                    <option {{ ($getRecord->is_menu==1) ? 'selected' : '' }}  value="1">Yes</option>
+                </select>
+              </div>
+
+              <div class="col-12">
                 <label for="inputPassword4" class="form-label">Status *</label>
                 <select class="form-control" name="status"> 
                     <option {{ ($getRecord->status==1) ? 'selected' : '' }}  value="1">Active</option>

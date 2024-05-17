@@ -30,7 +30,7 @@
                   <th scope="col">Slug</th>
                   <th scope="col">Titles</th>
                   <th scope="col">Meta Titles</th>
-              
+                  <th scope="col">Menu</th>
                   <th scope="col">Status</th>
                   <th scope="col">Created Date</th>
                   <th scope="col">Action</th>
@@ -44,6 +44,7 @@
                     <td>{{ $value->slug }}</td>
                     <td>{{ $value->title }}</td>
                     <td>{{ $value->meta_title }}</td>
+                    <td>{{ !empty($value->status) ? 'Yes' : 'No' }}</td>
                     <td>{{ !empty($value->status) ? 'Active' : 'Inactive' }}</td>
                     <td>{{ date('d-m-Y H:i A', strtotime($value->created_at)) }}</td>
                     <td>
