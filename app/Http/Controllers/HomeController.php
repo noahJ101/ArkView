@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\BlogModel;
 use App\Models\CategoryModel;
 use App\Models\PageModel;
+use App\Models\BlogCommentModel;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -103,5 +105,16 @@ class HomeController extends Controller
         $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
         $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
         return view('contact', $data);
+    }
+
+    public function BlogCommentSubmit(Request $request)
+    {
+        $save = new BlogCommentModel;
+        $save->user_id = Auth::user()->id;
+        $save->blog_id = $request->blog_id;
+        $save->comment = $request->comment;
+        $save->save();
+
+        return redirect()->back()->with('success', "Comment Posted Successfully");
     }
 }

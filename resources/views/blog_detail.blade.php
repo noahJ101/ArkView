@@ -10,6 +10,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-lg-8">
+        @include('layouts._messages')
         <div class="d-flex flex-column text-left mb-3">
           
           <h1 class="mb-3">{{ $getRecord->title }}</h1>
@@ -83,6 +84,9 @@
         <!-- Comment List -->
         <div class="mb-5">
           <h2 class="mb-4">3 Comments</h2>
+
+            @foreach($getRecord->$getComment as $comment)
+
           <div class="media mb-4">
             <img
               src="img/user.jpg"
@@ -95,15 +99,14 @@
                 John Doe <small><i>01 Jan 2045 at 12:00pm</i></small>
               </h6>
               <p>
-                Diam amet duo labore stet elitr ea clita ipsum, tempor labore
-                accusam ipsum et no at. Kasd diam tempor rebum magna dolores
-                sed sed eirmod ipsum. Gubergren clita aliquyam consetetur
-                sadipscing, at tempor amet ipsum diam tempor consetetur at
-                sit.
+                {{ $comment->comment }}
               </p>
               <button class="btn btn-sm btn-light">Reply</button>
             </div>
           </div>
+          @endforeach
+
+
           <div class="media mb-4">
             <img
               src="img/user.jpg"
@@ -151,24 +154,13 @@
         <!-- Comment Form -->
         <div class="bg-light p-5">
           <h2 class="mb-4">Leave a comment</h2>
-          <form>
+          <form method="post" action="{{ url('blog-comment-submit') }}">
+           {{ csrf_field() }}
+            <input type="hidden" name="blog_id" value="{{ $getRecord->id }}">
             <div class="form-group">
-              <label for="name">Name *</label>
-              <input type="text" class="form-control" id="name" />
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" class="form-control" id="email" />
-            </div>
-            <div class="form-group">
-              <label for="website">Website</label>
-              <input type="url" class="form-control" id="website" />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message *</label>
+              <label for="message">Comment</label>
               <textarea
-                id="message"
+                name="comment" required
                 cols="30"
                 rows="5"
                 class="form-control"

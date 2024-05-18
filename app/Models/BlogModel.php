@@ -193,4 +193,9 @@ class BlogModel extends Model
     {
         return $this->hasMany(BlogTagsModel::class, 'blog_id');
     }
+
+    public function getComment()
+    {
+        return $this->hasMany(BlogCommentModel::class, 'blog_id');
+    }
 }
