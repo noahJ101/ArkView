@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Request;
+use Auth;
 
 class BlogModel extends Model
 {
@@ -108,6 +109,11 @@ class BlogModel extends Model
         'category.slug as category_slug')
                     ->join('users', 'users.id', '=', 'blog.user_id')
                     ->join('category', 'category.id', '=', 'blog.category_id');
+
+                    if(!empty(Auth::check()) && Auth::user()->is_admin != 1)
+                    {
+                        $return = $return->where('blog.user_id', '=', Auth::user()->id);
+                    }
 
                     if(!empty(Request::get('id')))
                     {

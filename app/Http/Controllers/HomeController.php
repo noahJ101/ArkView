@@ -5,32 +5,52 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BlogModel;
 use App\Models\CategoryModel;
+use App\Models\PageModel;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        $data['meta_title'] = 'Blog';
-        return view('home');
+        $getPage = PageModel::getSlug('home');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('home',$data);
     }
 
     public function about()
     {
-        return view('about');
+        $getPage = PageModel::getSlug('about');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('about', $data);
     }
 
     public function teams()
     {
-        return view('teams');
+        $getPage = PageModel::getSlug('teams');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('teams', $data);
     }
 
     public function gallery()
     {
-        return view('gallery');
+        $getPage = PageModel::getSlug('gallery');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('gallery', $data);
     }
 
     public function blog()
     {
+        $getPage = PageModel::getSlug('blog');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
         $data['getRecord'] = BlogModel::getRecordFront();
         return view('blog', $data);
     }
@@ -78,6 +98,10 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $getPage = PageModel::getSlug('contact');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('contact', $data);
     }
 }

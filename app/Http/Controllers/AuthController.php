@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+use App\Models\PageModel;
+
 use App\Mail\RegisterMail;
 
 use App\Mail\ForgotPasswordMail;
@@ -24,17 +26,29 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('auth.login');
+        $getPage = PageModel::getSlug('login');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('auth.login', $data);
     }
 
     public function register()
     {
-        return view('auth.register');
+        $getPage = PageModel::getSlug('register');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('auth.register', $data);
     }
 
     public function forgot()
     {
-        return view('auth.forgot_password');
+        $getPage = PageModel::getSlug('forgot');
+        $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
+        return view('auth.forgot_password', $data);
     }
 
     public function reset($token)
@@ -42,6 +56,10 @@ class AuthController extends Controller
         $user = User::where('remember_token', '=', $token)->first();
         if(!empty($user))
         {
+            $getPage = PageModel::getSlug('reset');
+            $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
+            $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+            $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
             $data['user'] = $user;
         return view('auth.reset', $data);
     }

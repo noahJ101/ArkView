@@ -27,11 +27,12 @@
                 <input type="text"  name="id" value="{{ Request::get('id') }}" class="form-control">
               </div>
 
-
+              @if(Auth::user()->is_admin == 1)
               <div class="col-md-2"  style="margin-bottom: 10px;">
                 <label class="form-label">Username</label>
                 <input type="text"  name="username" value="{{ Request::get('username') }}" class="form-control">
               </div>
+              @endif
 
               <div class="col-md-3" style="margin-bottom: 10px;">
                 <label class="form-label">Title</label>
@@ -88,7 +89,9 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Image</th>
+                  @if(Auth::user()->is_admin == 1)
                   <th scope="col">Username</th>
+                  @endif
                   <th scope="col">Title</th>
                   <th scope="col">Category</th>
                   <th scope="col">Status</th>
@@ -101,13 +104,15 @@
                 
                 @forelse ($getRecord as $value)
                 <tr>
-                    <th scope="row">{{ $value->Id }}</th>
+                    <th scope="row">{{ $value->id }}</th>
                     <td>
                       @if(!empty($value->getImage()))
                       <img src="{{ $value->getImage() }}" style="height: 100px;  width: 100px;" alt="">
                     @endif
                     </td>
+                    @if(Auth::user()->is_admin == 1)
                     <td>{{ $value->user_name }}</td>
+                    @endif
                     <td>{{ $value->title }}</td>
                     <td>{{ $value->category_name }}</td>
                     <td>{{ !empty($value->status) ? 'Active' : 'InActive' }}</td>
