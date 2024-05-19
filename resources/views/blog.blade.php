@@ -47,7 +47,7 @@
                     <a href="{{ url($value->category_slug )}}"><i class="fa fa-folder text-primary"></i>{{ $value->category_name }}</a></small
                 >
                 <small class="mr-3"
-                  ><i class="fa fa-comments text-primary"></i> 0</small
+                  ><i class="fa fa-comments text-primary"></i> {{ $value->getCommentCount() }}</small
                 >
               </div>
               <p>

@@ -25,6 +25,7 @@ Route::get('/', [HomeController::class, 'home']);
 Route::get('about', [HomeController::class, 'about']);
 Route::get('teams', [HomeController::class, 'teams']);
 Route::get('gallery', [HomeController::class, 'gallery']);
+Route::get('noahjamesobekpa', [HomeController::class, 'noahjamesobekpa']);
 Route::get('blog', [HomeController::class, 'blog']);
 Route::get('contact', [HomeController::class, 'contact']);
 
@@ -80,6 +81,13 @@ Route::group(['middleware' => 'admin'], function(){
 
 Route::group(['middleware' => 'adminuser'], function(){
 
+    Route::get('panel/change-password', [UserController::class, 'ChangePassword']);
+    Route::post('panel/change-password', [UserController::class, 'UpdatePassword']);
+
+    Route::get('panel/account-setting', [UserController::class, 'AccountSetting']);
+    Route::post('panel/account-setting', [UserController::class, 'UpdateAccountSetting']);
+
+
     Route::get('panel/dashboard', [DashboardController::class, 'dashboard']);
 
 
@@ -92,6 +100,7 @@ Route::group(['middleware' => 'adminuser'], function(){
   Route::get('panel/blog/delete/{id}', [BlogController::class, 'delete_blog']);
 
   Route::post('blog-comment-submit', [HomeController::class, 'BlogCommentSubmit']);
+  Route::post('blog-comment-reply-submit', [HomeController::class, 'BlogCommentReplySubmit']);
 
   
  

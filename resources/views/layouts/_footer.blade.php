@@ -9,37 +9,36 @@
        class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
        style="font-size: 40px; line-height: 40px"
      >
-       <i class="flaticon-043-teddy-bear"></i>
-       <span class="text-white">KidKinder</span>
+       {{-- <i class="flaticon-043-teddy-bear"></i> --}}
+       <img src="{{ url('assets/img/logo-png.png') }}" alt="Logo" style="height: 50px;">
+       <span class="text-white">ArkViews</span>
      </a>
      <p>
-       Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea
-       dolor et magna dolor, elitr rebum duo est sed diam elitr. Stet elitr
-       stet diam duo eos rebum ipsum diam ipsum elitr.
+      At Arkiews, we are dedicated to providing insightful, engaging, and informative content that spans a wide range of topics. Our mission is to be a trusted source for readers seeking well-researched articles, expert opinions, and fresh perspectives on the issues that matter most.
      </p>
      <div class="d-flex justify-content-start mt-4">
        <a
          class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
          style="width: 38px; height: 38px"
-         href="#"
+         href="https://twitter.com/arkviews_" target="_blank"
          ><i class="fab fa-twitter"></i
        ></a>
        <a
          class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
          style="width: 38px; height: 38px"
-         href="#"
+         href="https://www.facebook.com/profile.php?id=61559887131054&mibextid=ZbWKwL" target="_blank"
          ><i class="fab fa-facebook-f"></i
        ></a>
-       <a
+       {{-- <a
          class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
          style="width: 38px; height: 38px"
-         href="#"
+         href="#" target="_blank"
          ><i class="fab fa-linkedin-in"></i
-       ></a>
+       ></a> --}}
        <a
          class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
          style="width: 38px; height: 38px"
-         href="#"
+         href="https://instagram.com/arkviews" target="_blank"
          ><i class="fab fa-instagram"></i
        ></a>
      </div>
@@ -50,21 +49,22 @@
        <h4 class="fa fa-map-marker-alt text-primary"></h4>
        <div class="pl-3">
          <h5 class="text-white">Address</h5>
-         <p>123 Street, New York, USA</p>
+         <p>Casdastral Zone, F.C.T Abuja, Nigeria.</p>
        </div>
      </div>
      <div class="d-flex">
        <h4 class="fa fa-envelope text-primary"></h4>
        <div class="pl-3">
          <h5 class="text-white">Email</h5>
-         <p>info@example.com</p>
+         <p>info@arkviews.com</p>
+         <p>arkviewsinsight@gmail.com</p>
        </div>
      </div>
      <div class="d-flex">
        <h4 class="fa fa-phone-alt text-primary"></h4>
        <div class="pl-3">
          <h5 class="text-white">Phone</h5>
-         <p>+012 345 67890</p>
+         <p>+2348135947755</p>
        </div>
      </div>
    </div>

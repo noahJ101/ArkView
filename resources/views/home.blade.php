@@ -13,137 +13,78 @@
     <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
       <div class="row align-items-center px-3">
         <div class="col-lg-6 text-center text-lg-left">
-          <h4 class="text-white mb-4 mt-5 mt-lg-0">Kids Learning Center</h4>
+          <h4 class="text-white mb-4 mt-5 mt-lg-0">Ark Views</h4>
           <h1 class="display-3 font-weight-bold text-white">
-            New Approach to Kids Education
+            Emback on a Journey of Insights, one View at a Time.
           </h1>
           <p class="text-white mb-4">
-            Sea ipsum kasd eirmod kasd magna, est sea et diam ipsum est amet sed
-            sit. Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed
-            ipsum at ipsum nonumy amet. Clita lorem dolore sed stet et est justo
-            dolore.
+            Exploring the latest in Entertainment, Sports and Fitness, Politics, Tech, Innovation, and Lifestyle. Join us for in-depth articles, reviews, and insights. Stay curious, stay informed.
           </p>
-          <a href="" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
+          <a href="{{url('blog')}}" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
-          <img class="img-fluid mt-5" src="{{url('img/header.png')}}" alt="" />
+          <img class="img-fluid mt-5" src="{{url('img/logo-png.png')}}" alt="" />
         </div>
       </div>
     </div>
     <!-- Header End -->
 
-    <!-- Facilities Start -->
+    <!-- Blog Start -->
     <div class="container-fluid pt-5">
-      <div class="container pb-3">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Play Ground</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
+      <div class="container">
+        <div class="text-center pb-2">
+          <p class="section-title px-5">
+            <span class="px-2">Latest Blog</span>
+          </p>
+          <h1 class="mb-4">Latest Articles</h1>
+        </div>
+        <div class="row pb-3">
+
+          @foreach ($getRecord->take(12) as $value)
+            
+          
+          <div class="col-lg-4 mb-4">
+            <div class="card border-0 shadow-sm mb-2">
+              <img class="card-img-top mb-2" src="{{ $value->getImage() }}" style="height: 233px;width:100%;object-fit:cover;" alt="" />
+              <div class="card-body bg-light text-center p-4">
+                <a href="{{ url(strval($value->slug)) }}">
+                <h4 class="">{{ $value->title }}</h4>
+              </a>
+                <div class="d-flex justify-content-center mb-3">
+                  <small class="mr-3"
+                    ><i class="fa fa-user text-primary"></i> {{ $value->user_name }}</small
+                  >
+                  <small class="mr-3"
+                    ><i class="fa fa-folder text-primary"></i> {{ $value->category_name }}</small
+                  >
+                  <small class="mr-3"
+                    ><i class="fa fa-comments text-primary"></i> {{ $value->getCommentCount() }}</small
+                  >
+                </div>
+                <p>
+                  {!! strip_tags(Str::substr($value->description,0,170))  !!}...
                 </p>
+                <a href="{{ url(strval($value->slug)) }}" class="btn btn-primary px-4 mx-auto my-2"
+                  >Read More</a>
+                
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Music and Dance</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Arts and Crafts</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Safe Transportation</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Healthy food</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Educational Tour</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
+
+          @endforeach
+          
+          
+            
           </div>
         </div>
+        
       </div>
     </div>
-    <!-- Facilities Start -->
+    <!-- Blog End -->
 
-    <!-- About Start -->
+    
+
+    {{-- <!-- About Start -->
     <div class="container-fluid py-5">
       <div class="container">
         <div class="row align-items-center">
@@ -191,10 +132,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- About End -->
 
-    <!-- Class Start -->
+    {{-- <!-- Class Start -->
     <div class="container-fluid pt-5">
       <div class="container">
         <div class="text-center pb-2">
@@ -324,9 +265,9 @@
         </div>
       </div>
     </div>
-    <!-- Class End -->
+    <!-- Class End --> --}}
 
-    <!-- Registration Start -->
+    {{-- <!-- Registration Start -->
     <div class="container-fluid py-5">
       <div class="container">
         <div class="row align-items-center">
@@ -640,103 +581,9 @@
         </div>
       </div>
     </div>
-    <!-- Testimonial End -->
+    <!-- Testimonial End --> --}}
 
-    <!-- Blog Start -->
-    <div class="container-fluid pt-5">
-      <div class="container">
-        <div class="text-center pb-2">
-          <p class="section-title px-5">
-            <span class="px-2">Latest Blog</span>
-          </p>
-          <h1 class="mb-4">Latest Articles From Blog</h1>
-        </div>
-        <div class="row pb-3">
-          <div class="col-lg-4 mb-4">
-            <div class="card border-0 shadow-sm mb-2">
-              <img class="card-img-top mb-2" src="{{ url('img/blog-1.jpg') }}" alt="" />
-              <div class="card-body bg-light text-center p-4">
-                <h4 class="">Diam amet eos at no eos</h4>
-                <div class="d-flex justify-content-center mb-3">
-                  <small class="mr-3"
-                    ><i class="fa fa-user text-primary"></i> Admin</small
-                  >
-                  <small class="mr-3"
-                    ><i class="fa fa-folder text-primary"></i> Web Design</small
-                  >
-                  <small class="mr-3"
-                    ><i class="fa fa-comments text-primary"></i> 15</small
-                  >
-                </div>
-                <p>
-                  Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam
-                  eirmod, duo et sed sit eirmod kasd clita tempor dolor stet
-                  lorem. Tempor ipsum justo amet stet...
-                </p>
-                <a href="" class="btn btn-primary px-4 mx-auto my-2"
-                  >Read More</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4">
-            <div class="card border-0 shadow-sm mb-2">
-              <img class="card-img-top mb-2" src="{{url('img/blog-2.jpg')}}" alt="" />
-              <div class="card-body bg-light text-center p-4">
-                <h4 class="">Diam amet eos at no eos</h4>
-                <div class="d-flex justify-content-center mb-3">
-                  <small class="mr-3"
-                    ><i class="fa fa-user text-primary"></i> Admin</small
-                  >
-                  <small class="mr-3"
-                    ><i class="fa fa-folder text-primary"></i> Web Design</small
-                  >
-                  <small class="mr-3"
-                    ><i class="fa fa-comments text-primary"></i> 15</small
-                  >
-                </div>
-                <p>
-                  Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam
-                  eirmod, duo et sed sit eirmod kasd clita tempor dolor stet
-                  lorem. Tempor ipsum justo amet stet...
-                </p>
-                <a href="" class="btn btn-primary px-4 mx-auto my-2"
-                  >Read More</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4">
-            <div class="card border-0 shadow-sm mb-2">
-              <img class="card-img-top mb-2" src="{{url('img/blog-3.jpg')}}" alt="" />
-              <div class="card-body bg-light text-center p-4">
-                <h4 class="">Diam amet eos at no eos</h4>
-                <div class="d-flex justify-content-center mb-3">
-                  <small class="mr-3"
-                    ><i class="fa fa-user text-primary"></i> Admin</small
-                  >
-                  <small class="mr-3"
-                    ><i class="fa fa-folder text-primary"></i> Web Design</small
-                  >
-                  <small class="mr-3"
-                    ><i class="fa fa-comments text-primary"></i> 15</small
-                  >
-                </div>
-                <p>
-                  Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam
-                  eirmod, duo et sed sit eirmod kasd clita tempor dolor stet
-                  lorem. Tempor ipsum justo amet stet...
-                </p>
-                <a href="" class="btn btn-primary px-4 mx-auto my-2"
-                  >Read More</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Blog End -->
+    
     @endsection
 
     @section('script')

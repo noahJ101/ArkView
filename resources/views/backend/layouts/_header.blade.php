@@ -2,8 +2,8 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{{url('assets/img/logo.png')}}" alt="">
-        <span class="d-none d-lg-block">Ark View Insight</span>
+        <img src="{{url('assets/img/logo-png.png')}}" alt="">
+        <span class="d-none d-lg-block">ArkViews</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -163,7 +163,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{url('assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
+            <img src="{{ Auth::user()->getProfile()}}" style="width: 36px;height: 36px;object-fit:cover;" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
           </a>
 
@@ -173,9 +173,9 @@
           
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="">
+              <a class="dropdown-item d-flex align-items-center" href="{{ url('panel/account-setting') }}">
                 <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
+                <span>Account Setting</span>
               </a>
             </li>
             <li>

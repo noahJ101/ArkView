@@ -51,7 +51,7 @@ class BlogModel extends Model
         ->where('blog.is_publish', '=', 1)
         ->where('blog.is_delete', '=', 0)
         ->orderBy('blog.id', 'desc')
-        ->paginate(10);
+        ->paginate(12);
 
         return $return;
     }
@@ -196,6 +196,11 @@ class BlogModel extends Model
 
     public function getComment()
     {
-        return $this->hasMany(BlogCommentModel::class, 'blog_id');
+        return $this->hasMany(BlogCommentModel::class, 'blog_id')->orderBy('blog_comment.id', 'desc');
+    }
+
+    public function getCommentCount()
+    {
+        return $this->hasMany(BlogCommentModel::class, 'blog_id')->count();
     }
 }

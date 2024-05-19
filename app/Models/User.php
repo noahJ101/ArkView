@@ -55,4 +55,17 @@ class User extends Authenticatable implements MustVerifyEmail
         ->orderBy('users.id', 'desc')
         ->paginate(20);
     }
+
+    public function getprofile()
+    {
+        if(!empty($this->profile_pic) && file_exists('upload/profile/'.$this->profile_pic ))
+        {
+            return url('upload/profile/'.$this->profile_pic);
+        }
+        else
+        {
+          return url('assets/img/download.jpg');  
+        }
+    }
+
 }

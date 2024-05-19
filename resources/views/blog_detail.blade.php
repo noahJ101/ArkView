@@ -19,7 +19,7 @@
             <p class="mr-3">
              <a href="{{ url($getRecord->category_slug) }}" ><i class="fa fa-folder text-primary"></i> {{ $getRecord->category_name }}</a>
             </p>
-            <p class="mr-3"><i class="fa fa-comments text-primary"></i> 0</p>
+            <p class="mr-3"><i class="fa fa-comments text-primary"></i> {{ $getRecord->getCommentCount() }}</p>
           </div>
         </div>
         <div class="mb-5">
@@ -67,7 +67,7 @@
                          </small
                   >
                   <small class="mr-3"
-                    ><i class="fa fa-comments text-primary"></i> 0</small
+                    ><i class="fa fa-comments text-primary"></i> {{ $related->getCommentCount() }}</small
                   >
                 </div>
               </div>
@@ -83,9 +83,9 @@
 
         <!-- Comment List -->
         <div class="mb-5">
-          <h2 class="mb-4">3 Comments</h2>
+          <h2 class="mb-4">{{ $getRecord->getComment->count() }} Comments</h2>
 
-            @foreach($getRecord->$getComment as $comment)
+            @foreach($getRecord->getComment as $comment)
 
           <div class="media mb-4">
             <img
@@ -96,36 +96,16 @@
             />
             <div class="media-body">
               <h6>
-                John Doe <small><i>01 Jan 2045 at 12:00pm</i></small>
+                {{ $comment->user->name }} <small><i>{{ date('d M Y', strtotime($comment->created_at)) }} at {{ date('h:i A', strtotime($comment->created_at)) }}</i></small>
               </h6>
               <p>
                 {{ $comment->comment }}
               </p>
-              <button class="btn btn-sm btn-light">Reply</button>
-            </div>
-          </div>
-          @endforeach
+              <button class="btn btn-sm btn-light ReplyOpen" id="{{ $comment->id }}" >Reply</button>
 
-
-          <div class="media mb-4">
-            <img
-              src="img/user.jpg"
-              alt="Image"
-              class="img-fluid rounded-circle mr-3 mt-1"
-              style="width: 45px"
-            />
-            <div class="media-body">
-              <h6>
-                John Doe <small><i>01 Jan 2045 at 12:00pm</i></small>
-              </h6>
-              <p>
-                Diam amet duo labore stet elitr ea clita ipsum, tempor labore
-                accusam ipsum et no at. Kasd diam tempor rebum magna dolores
-                sed sed eirmod ipsum. Gubergren clita aliquyam consetetur
-                sadipscing, at tempor amet ipsum diam tempor consetetur at
-                sit.
-              </p>
-              <button class="btn btn-sm btn-light">Reply</button>
+              @foreach ($comment->getReply as $reply )
+                  
+              
               <div class="media mt-4">
                 <img
                   src="img/user.jpg"
@@ -134,21 +114,48 @@
                   style="width: 45px"
                 />
                 <div class="media-body">
-                  <h6>
-                    John Doe <small><i>01 Jan 2045 at 12:00pm</i></small>
-                  </h6>
+                    <h6>
+                        {{ $reply->user->name }} <small><i>{{ date('d M Y', strtotime($reply->created_at)) }} at {{ date('h:i A', strtotime($reply->created_at)) }}</i></small>
+                      </h6>
                   <p>
-                    Diam amet duo labore stet elitr ea clita ipsum, tempor
-                    labore accusam ipsum et no at. Kasd diam tempor rebum
-                    magna dolores sed sed eirmod ipsum. Gubergren clita
-                    aliquyam consetetur, at tempor amet ipsum diam tempor at
-                    sit.
+                    {{ $reply->comment }}
                   </p>
-                  <button class="btn btn-sm btn-light">Reply</button>
+                  
                 </div>
               </div>
+              @endforeach
+
+              <div class="bg-light p-3 ShowReply{{ $comment->id }}" style="display: none;">
+          <h2 class="mb-4">Reply comment</h2>
+          <form method="post" action="{{ url('blog-comment-reply-submit') }}">
+           {{ csrf_field() }}
+            <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+            <div class="form-group">
+              <label for="message">Comment</label>
+              <textarea
+                name="comment" required
+                cols="30"
+                rows="5"
+                class="form-control"
+              ></textarea>
+            </div>
+            <div class="form-group mb-0">
+              <input
+                type="submit"
+                value="Leave Reply"
+                class="btn btn-primary px-3"
+              />
+            </div>
+          </form>
+        </div>
+
+
             </div>
           </div>
+          @endforeach
+
+
+          
         </div>
 
         <!-- Comment Form -->
@@ -258,7 +265,7 @@
                     <a href="{{ url($recent->category_slug) }}"><i class="fa fa-folder text-primary"></i> {{ $recent->category_name }}</a>
                     </small>
                 <small class="mr-3"
-                  ><i class="fa fa-comments text-primary"></i> 0</small
+                  ><i class="fa fa-comments text-primary"></i> {{ $recent->getCommentCount() }}</small
                 >
               </div>
             </div>
@@ -294,6 +301,14 @@
  @endsection
 
 @section('script')
+<script type="text/javascript">
+
+$('.ReplyOpen').click(function() {
+    var id = $(this).attr('id');
+    $('.ShowReply' +id).toggle();
+});
+
+</script>
 
 @endsection
    
