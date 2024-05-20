@@ -14,8 +14,8 @@
   @endif
 
   <!-- Favicons -->
-<link href="{{url('assets/img/favicon.png')}}" rel="icon">
-<link href="{{url('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+<link href="{{url('img/logo-png.png')}}" rel="icon">
+<link href="{{url('img/logo-png.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -54,7 +54,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="{{url('')}}" class="logo d-flex align-items-center w-auto">
-                  <img src="{{url('assets/img/ark.png')}}" alt="">
+                  <img src="{{url('img/logo-png.png')}}" alt="">
                   <span class="d-none d-lg-block">Ark View</span>
                 </a>
               </div><!-- End Logo -->

@@ -80,6 +80,24 @@
         
       </div>
     </div>
+
+    <!-- Category List -->
+    <div class="mb-5">
+      <h2 class="mb-4">Categories</h2>
+      <ul class="col-lg-6  list-group list-group-flush">
+        @foreach ($getCategory as $category )
+            
+        
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center px-0"
+        >
+          <a href="{{ url(strval($category->slug)) }}">{{ $category->name }}</a>
+          <span class="badge badge-primary badge-pill">{{ $category->totalBlog() }}</span>
+        </li>
+        @endforeach
+        
+      </ul>
+    </div>
     <!-- Blog End -->
 
     

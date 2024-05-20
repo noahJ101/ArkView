@@ -40,8 +40,14 @@
          {{-- <a href="{{ url('blog') }}" class="nav-item nav-link">Blog</a> --}}
           {{--<a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>--}}
         </div>
+
+       
+        @auth
+        <a href="{{url('logout')}}" class="btn btn-primary px-4">Logout</a>
+        @else
         <a href="{{url('login')}}" class="btn btn-primary px-4">Login</a>
         <a style="margin-left: 8px;" href="{{url('register')}}" class="btn btn-primary px-4">Register</a>
+        @endauth
       </div>
     </nav>
   </div>

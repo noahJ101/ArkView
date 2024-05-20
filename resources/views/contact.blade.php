@@ -8,19 +8,7 @@
 @section('content')
 
  <!-- Header Start -->
- <div class="container-fluid bg-primary mb-5">
-    <div
-      class="d-flex flex-column align-items-center justify-content-center"
-      style="min-height: 400px"
-    >
-      <h3 class="display-3 font-weight-bold text-white">Contact Us</h3>
-      <div class="d-inline-flex text-white">
-        <p class="m-0"><a class="text-white" href="">Home</a></p>
-        <p class="m-0 px-2">/</p>
-        <p class="m-0">Contact Us</p>
-      </div>
-    </div>
-  </div>
+ 
   <!-- Header End -->
 
   <!-- Contact Start -->
@@ -95,10 +83,7 @@
         </div>
         <div class="col-lg-5 mb-5">
           <p>
-            Labore sea amet kasd diam justo amet ut vero justo. Ipsum ut et
-            kasd duo sit, ipsum sea et erat est dolore, magna ipsum et magna
-            elitr. Accusam accusam lorem magna, eos et sed eirmod dolor est
-            eirmod eirmod amet.
+            Have questions, suggestions, or just want to say hello? We'd love to hear from you! Reach out to us at <info@arkviews class="com"></info@arkviews>. Your feedback helps us improve and serve you better.
           </p>
           <div class="d-flex">
             <i
@@ -107,7 +92,7 @@
             ></i>
             <div class="pl-3">
               <h5>Address</h5>
-              <p>123 Street, New York, USA</p>
+              <p>Casdastral Zone, F.C.T Abuja, Nigeria.</p>
             </div>
           </div>
           <div class="d-flex">
@@ -117,7 +102,8 @@
             ></i>
             <div class="pl-3">
               <h5>Email</h5>
-              <p>info@example.com</p>
+              <p>info@arkviews.com</p>
+              <p>arkviewsinsight@gmail.com</p>
             </div>
           </div>
           <div class="d-flex">
@@ -127,7 +113,7 @@
             ></i>
             <div class="pl-3">
               <h5>Phone</h5>
-              <p>+012 345 67890</p>
+              <p>+2348135947755</p>
             </div>
           </div>
           <div class="d-flex">
@@ -137,7 +123,7 @@
             ></i>
             <div class="pl-3">
               <h5>Opening Hours</h5>
-              <strong>Sunday - Friday:</strong>
+              <strong>Monday - Saturday:</strong>
               <p class="m-0">08:00 AM - 05:00 PM</p>
             </div>
           </div>

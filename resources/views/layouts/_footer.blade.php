@@ -10,11 +10,11 @@
        style="font-size: 40px; line-height: 40px"
      >
        {{-- <i class="flaticon-043-teddy-bear"></i> --}}
-       <img src="{{ url('assets/img/logo-png.png') }}" alt="Logo" style="height: 50px;">
+       
        <span class="text-white">ArkViews</span>
      </a>
      <p>
-      At Arkiews, we are dedicated to providing insightful, engaging, and informative content that spans a wide range of topics. Our mission is to be a trusted source for readers seeking well-researched articles, expert opinions, and fresh perspectives on the issues that matter most.
+      At Arkviews, we are dedicated to providing insightful, engaging, and informative content that spans a wide range of topics. Our mission is to be a trusted source for readers seeking well-researched articles, expert opinions, and fresh perspectives on the issues that matter most.
      </p>
      <div class="d-flex justify-content-start mt-4">
        <a
@@ -42,6 +42,7 @@
          ><i class="fab fa-instagram"></i
        ></a>
      </div>
+
    </div>
    <div class="col-lg-3 col-md-6 mb-5">
      <h3 class="text-primary mb-4">Get In Touch</h3>
@@ -123,7 +124,7 @@
  >
    <p class="m-0 text-center text-white">
      &copy;
-     <a class="text-primary font-weight-bold" href="#">Ark View Blog</a>.
+     <a class="text-primary font-weight-bold" href="{{url('about')}}">Ark Views</a>.
      All Rights Reserved.
 
      <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->

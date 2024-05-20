@@ -1,7 +1,7 @@
 
 <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; {{ date('Y') }} Copyright <strong><span>Arkview Insight</span></strong>. All Rights Reserved
+      &copy; {{ date('Y') }} Copyright <strong><span>Ark Views</span></strong>. All Rights Reserved
     </div>
 
   </footer><!-- End Footer -->

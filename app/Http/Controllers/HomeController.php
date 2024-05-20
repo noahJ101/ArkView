@@ -19,6 +19,7 @@ class HomeController extends Controller
         $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
         $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
         $data['getRecord'] = BlogModel::getRecordFront();
+        $data['getCategory'] = CategoryModel::getCategory();
         
         return view('home',$data);
     }
@@ -29,27 +30,6 @@ class HomeController extends Controller
         $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
         $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
         $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
-
-        $getRecord = BlogModel::getRecordSlug($slug);
-        if(!empty($getRecord))
-        {
-            $data['getCategory'] = CategoryModel::getCategory();
-            $data['getRecentPost'] = BlogModel::getRecentPost();
-            $data['getRelatedPost'] = BlogModel::getRelatedPost($getRecord->category_id, $getRecord->id);
-
-            $data['getRecord'] = $getRecord;
-
-            $data['meta_title'] = $getRecord->title;
-            $data['meta_description'] = $getRecord->meta_description;
-            $data['meta_keywords'] = $getRecord->meta_keywords;
-            
-        
-            return view('blog_detail', $data);
-        }
-        else
-        {
-            abort(404);
-        }
         
         return view('about', $data);
     }
@@ -74,7 +54,7 @@ class HomeController extends Controller
 
     public function noahjamesobekpa()
     {
-        $getPage = PageModel::getSlug('gallery');
+        $getPage = PageModel::getSlug('noahjamesobekpa');
         $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
         $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
         $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
