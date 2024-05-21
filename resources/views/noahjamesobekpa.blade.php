@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Other head content -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of a PHP Laravel Software Developer">
@@ -16,6 +18,23 @@
             height: 200px;
             object-fit: cover;
         }
+
+        .social-btn {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.social-btn i {
+    font-size: 18px;
+}
+
+.social-container {
+    margin-top: 16px;
+}
     </style>
 </head>
 <body>
@@ -46,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <img src="{{ asset('images/profile.jpg') }}" alt="Profile Picture" class="img-fluid rounded-circle">
+                   <a href="{{ url('') }}"> <img src="{{ url('img/logo-png.png') }}" alt="Profile Picture" class="img-fluid rounded-circle"></a>
                 </div>
                 <div class="col-lg-8">
                     <h2>About Me</h2>
@@ -63,9 +82,23 @@
             <h2 class="text-center">Projects</h2>
             <div class="row">
                 <!-- Project 1: Blog -->
+
+                <!-- Project 1: Property Management System -->
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="{{url('img/blogdetails(2).png')}}" class="card-img-top project-img" alt="Blog Project">
+                        <img src="{{ asset('img/phomepage.png') }}" class="card-img-top project-img" alt="Property Management Project">
+                        <div class="card-body">
+                            <h5 class="card-title">Property Management System</h5>
+                            <p class="card-text">The Property Management System is a comprehensive web application designed to streamline and simplify the management of rental properties. It includes features like property listing, tenant management, and rent tracking. 
+                                Built using Laravel, a robust PHP framework, and Bootstrap for modern and responsive design, this system provides an intuitive interface for both property managers and tenants. The backend is powered by a MySQL database, ensuring efficient and reliable data management.</p>
+                            <a href="https://property.arkviews.com/" target="_blank" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{url('img/ahomepage.png')}}" class="card-img-top project-img" alt="Blog Project">
                         <div class="card-body">
                             <h5 class="card-title">Blog</h5>
                             <p class="card-text">The Multi-User Blog Application is a robust and feature-rich platform designed to facilitate content creation and sharing among multiple users. 
@@ -83,25 +116,14 @@
                         <div class="card-body">
                             <h5 class="card-title">E-commerce Website</h5>
                             <p class="card-text">The E-Commerce Website is a comprehensive online shopping platform designed to provide a seamless and engaging shopping experience for users. It features a product catalog, shopping cart, checkout system, and order management.
-                                Built using Laravel, a robust PHP framework, and Bootstrap for modern and responsive design, this application ensures a smooth and efficient user interface. Intuitive User Interface: I crafted a sleek and intuitive user interface using HTML, CSS, and JavaScript. From streamlined navigation to visually appealing product displays, every element is designed to enhance the user journey.
+                                Built using Laravel, a robust PHP framework, and Bootstrap for modern and responsive design, this application ensures a smooth and efficient user interface. I crafted a sleek and intuitive user interface using HTML, CSS, and JavaScript.
                                 The backend is powered by a MySQL database, guaranteeing reliable data management and quick access.
                             </p>
                             <a href="https://store.arkviews.com/" target="_blank"  class="btn btn-primary">View Project</a>
                         </div>
                     </div>
                 </div>
-                <!-- Project 3: Property Management System -->
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="{{ asset('images/property.jpg') }}" class="card-img-top project-img" alt="Property Management Project">
-                        <div class="card-body">
-                            <h5 class="card-title">Property Management System</h5>
-                            <p class="card-text">The Property Management System is a comprehensive web application designed to streamline and simplify the management of rental properties. It includes features like property listing, tenant management, and rent tracking. 
-                                Built using Laravel, a robust PHP framework, and Bootstrap for modern and responsive design, this system provides an intuitive interface for both property managers and tenants. The backend is powered by a MySQL database, ensuring efficient and reliable data management.</p>
-                            <a href="https://property.arkviews.com/" target="_blank" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -138,20 +160,22 @@
     <footer class="bg-light py-4">
         <div class="container text-center">
             <p>&copy; 2024 Noah James Obekpa. All rights reserved.</p>
-            <div class="d-flex justify-content-center">
-                <a href="https://twitter.com/arkviews_" target="_blank" class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px">
+            <div class="d-flex justify-content-start social-container">
+                <a class="btn btn-outline-primary rounded-circle social-btn" href="https://twitter.com/arkviews_" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61559887131054&mibextid=ZbWKwL" target="_blank" class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px">
+                <a class="btn btn-outline-primary rounded-circle social-btn" href="https://www.facebook.com/profile.php?id=61559887131054&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/noah-james-obekpa/" target="_blank" class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px">
+                <a class="btn btn-outline-primary rounded-circle social-btn" href="#" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://instagram.com/ark.view" target="_blank" class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px">
+                <a class="btn btn-outline-primary rounded-circle social-btn" href="https://instagram.com/arkviews" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
+              
+        </div>
         </div>
     </footer>
     <!-- Footer End -->
