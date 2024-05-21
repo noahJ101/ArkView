@@ -91,7 +91,7 @@
                             <h5 class="card-title">Property Management System</h5>
                             <p class="card-text">The Property Management System is a comprehensive web application designed to streamline and simplify the management of rental properties. It includes features like property listing, tenant management, and rent tracking. 
                                 Built using Laravel, a robust PHP framework, and Bootstrap for modern and responsive design, this system provides an intuitive interface for both property managers and tenants. The backend is powered by a MySQL database, ensuring efficient and reliable data management.</p>
-                            <a href="https://property.arkviews.com/" target="_blank" class="btn btn-primary">View Project</a>
+                            <a href="https://INTERLLECT.arkviews.com/" target="_blank" class="btn btn-primary">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                                 Built using Laravel, a powerful PHP framework, and Bootstrap for responsive and modern design, this application provides a seamless and engaging user experience.
                                  The backend is powered by a MySQL database, ensuring efficient data management and retrieval.
                                  It includes functionalities like user authentication, post management, and comments.</p>
-                            <a href="{{ url('') }}" target="_blank" class="btn btn-primary">View Project</a>
+                            <a href="{{ url('https://arkviews.com/') }}" target="_blank" class="btn btn-primary">View Project</a>
                         </div>
                     </div>
                 </div>
