@@ -169,7 +169,7 @@ else
 
         Mail::to($save->email)->send(new RegisterMail($save));
 
-        Alert::success('Account Created Successfully, Kindly Verify your Email Address.', 'Account Created Successfully');
+        Alert::success('Account Created Successfully, Kindly verify your Email Address.', 'Account Created Successfully');
 
         return redirect('login'); //->with('success', "Your account has been Registered Successfully");
 

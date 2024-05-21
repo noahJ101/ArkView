@@ -214,18 +214,21 @@
                 <div
                   class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
                 >
-                <a
-         class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-         style="width: 38px; height: 38px"
-         href="https://instagram.com/ark.view" target="_blank"
-         ><i class="fab fa-instagram"></i
-       ></a>
+               
                   <a
                     class="btn btn-outline-light text-center mr-2 px-0"
                     style="width: 38px; height: 38px"
                     href="https://twitter.com/arkviews_" target="_blank"
                     ><i class="fab fa-twitter"></i
                   ></a>
+
+                  <a
+                  class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                  style="width: 38px; height: 38px"
+                  href="https://instagram.com/ark.view" target="_blank"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+
                   <a
                     class="btn btn-outline-light text-center mr-2 px-0"
                     style="width: 38px; height: 38px"
@@ -235,7 +238,7 @@
                   <a
                     class="btn btn-outline-light text-center px-0"
                     style="width: 38px; height: 38px"
-                    href="www.linkedin.com/noah-james-obekpa" target="_blank"
+                    href="https://www.linkedin.com/in/noah-james-obekpa/" target="_blank"
                     ><i class="fab fa-linkedin-in"></i
                   ></a>
                 </div>
@@ -341,7 +344,7 @@
             </div>
           </div> --}}
           <p>
-            [Founder/Editor-in-Chief]: With a vision to create a platform for meaningful discourse, <a href="{{ url('noahjamesobekpa') }}">Noah James</a> founded ArkViews to connect readers with quality content and insightful discussions.
+            [Editor-in-Chief] With a vision to create a platform for meaningful discourse, <a href="{{ url('noahjamesobekpa') }}">Noah James</a> founded ArkViews to connect readers with quality content and insightful discussions.
           </p>
         </div>
       </div>
