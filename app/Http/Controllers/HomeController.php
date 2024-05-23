@@ -34,13 +34,13 @@ class HomeController extends Controller
         return view('about', $data);
     }
 
-    public function teams()
+    public function privacy()
     {
-        $getPage = PageModel::getSlug('teams');
+        $getPage = PageModel::getSlug('privacy');
         $data['meta_title'] = !empty($getPage) ? $getPage->meta_title : '';
         $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
         $data['meta_keywords'] = !empty($getPage) ? $getPage->meta_keywords : '';
-        return view('teams', $data);
+        return view('privacy', $data);
     }
 
     public function gallery()

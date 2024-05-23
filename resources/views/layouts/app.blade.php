@@ -42,6 +42,10 @@
      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
      @yield('style')
+
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4557558702531976"
+     crossorigin="anonymous"></script>
+
   </head>
 
   <body>

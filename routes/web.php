@@ -23,7 +23,7 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('about', [HomeController::class, 'about']);
-Route::get('teams', [HomeController::class, 'teams']);
+Route::get('privacy', [HomeController::class, 'privacy']);
 Route::get('gallery', [HomeController::class, 'gallery']);
 Route::get('noahjamesobekpa', [HomeController::class, 'noahjamesobekpa']);
 Route::get('blog', [HomeController::class, 'blog']);

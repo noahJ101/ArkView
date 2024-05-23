@@ -86,6 +86,10 @@
        <a class="text-white" href="{{url('contact')}}"
          ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
        >
+
+       <a class="text-white" href="{{url('contact')}}"
+         ><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a
+       >
      </div>
    </div>
    <div class="col-lg-3 col-md-6 mb-5">
